@@ -45,6 +45,8 @@ Here are some useful links to navigate to various UI's:
 * HDFS: (http://10.211.55.101:50070/dfshealth.html)
 * Spark history server: (http://10.211.55.101:18080)
 * Spark context UI (if a Spark context is running): (http://10.211.55.101:4040)
+* Zeppelin Web UI on node HDFS (http://10.211.55.101:8080)
+* Kafka Plaintext port (10.211.55.102:9092)
 * Flink Web UI (http://10.211.55.103:8081)
 * Zeppelin Web UI on node Flink (http://10.211.55.103:8080)
 

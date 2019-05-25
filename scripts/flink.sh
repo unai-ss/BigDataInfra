@@ -1,3 +1,17 @@
+#source "/vagrant/scripts/common.sh"
+
+
+#function installflink {
+#	if resourceExists $FLINK_ARCHIVE; then
+#		installLocalflink
+#	else
+#		installRemoteflink
+#	fi
+#	echo ${FLINK_TARGET}/$FLINK_RELEASE ${FLINK_TARGET}/zeppelin
+#	ln -s ${FLINK_TARGET}/$FLINK_RELEASE ${FLINK_TARGET}/zeppelin
+#}
+
+## version inicial
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 sudo setenforce 0
@@ -11,3 +25,4 @@ sudo sed -i 's/^jobmanager.rpc.address: localhost$/jobmanager.rpc.address: flink
 sudo /home/vagrant/flink-1.7.2/bin/start-cluster.sh
 sudo yum install lsof curl wget -y
 sudo echo "FIN FLINK INSTALL"
+#fin version inicial
