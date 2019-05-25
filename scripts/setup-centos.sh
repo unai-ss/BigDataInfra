@@ -8,6 +8,9 @@ function disableFirewall {
 	service iptables save
 	service iptables stop
 	chkconfig iptables off
+	systemctl stop firewalld
+	systemctl disable firewalld
+	sudo setenforce 0
 }
 
 function setupHosts {

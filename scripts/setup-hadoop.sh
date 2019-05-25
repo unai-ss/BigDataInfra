@@ -24,7 +24,7 @@ function setupHadoop {
 	mkdir /var/hadoop/mr-history
 	mkdir /var/hadoop/mr-history/done
 	mkdir /var/hadoop/mr-history/tmp
-	
+
 	echo "copying over hadoop configuration files"
 	cp -f $HADOOP_RES_DIR/* $HADOOP_CONF
 }
@@ -67,6 +67,15 @@ function setupHdfs {
     hdfs dfs -chmod -R 777 /var
 }
 
+function  changeRHEL74 {
+  echo "delete jline 0.9 in order to solver RHEL 74 problems"
+	sudo rm /usr/local/hadoop-2.6.0/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/jline-0.9.94.jar
+	sudo rm /usr/local/hadoop-2.6.0/share/hadoop/yarn/lib/jline-0.9.94.jar
+	sudo rm /usr/local/hadoop-2.6.0/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/jline-0.9.94.jar
+	sudo rm /usr/local/hadoop-2.6.0/share/hadoop/yarn/lib/jline-0.9.94.jar
+	export HADOOP_USER_CLASSPATH_FIRST=true
+}
+
 echo "setup hadoop"
 
 installHadoop
@@ -75,5 +84,6 @@ setupEnvVars
 formatHdfs
 startDaemons
 setupHdfs
+changeRHEL74
 
 echo "hadoop setup complete"
