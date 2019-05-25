@@ -22,6 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         nodeh.vm.provision "shell", path: "scripts/setup-hadoop.sh"
         nodeh.vm.provision "shell", path: "scripts/setup-hive.sh"
         nodeh.vm.provision "shell", path: "scripts/setup-spark.sh"
+        nodeh.vm.provision "shell", path: "scripts/setupZeppelin.sh"
         nodeh.vm.provision "shell", path: "scripts/finalize-centos.sh"
     end
     config.vm.define "nodekafka#{k}" do |nodek|
@@ -39,6 +40,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         nodek.vm.provision "shell", path: "scripts/setup-java.sh"
         #nodek.vm.provision "shell", path: "scripts/java_1_8.sh"
         nodek.vm.provision "shell", path: "scripts/confluent.sh"
+        nodek.vm.provision "shell", path: "scripts/setupZeppelin.sh"
         nodek.vm.provision "shell", path: "scripts/finalize-centos.sh"
     end
     config.vm.define "nodeflink#{j}" do |nodej|
@@ -56,6 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         nodej.vm.provision "shell", path: "scripts/setup-java.sh"
         #nodej.vm.provision "shell", path: "scripts/java_1_8.sh"
         nodej.vm.provision "shell", path: "scripts/flink.sh"
+        nodej.vm.provision "shell", path: "scripts/setupZeppelin.sh"
         nodej.vm.provision "shell", path: "scripts/finalize-centos.sh"
     end
     config.vm.define "miniserver" do |nodes|

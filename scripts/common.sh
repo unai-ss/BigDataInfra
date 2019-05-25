@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#
+# Version information is defined the versions.sh file
+#
+source "/vagrant/scripts/versions.sh"
+
 # java
 JAVA_ARCHIVE=jdk-8u51-linux-x64.gz
 
@@ -24,6 +29,13 @@ SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.tgz
 SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_VERSION-bin-hadoop2.6.tgz
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf
+
+# Zeppelin
+ZEPPELIN_RELEASE=zeppelin-${ZEPPELIN_VERSION}-bin-netinst
+ZEPPELIN_ARCHIVE=${ZEPPELIN_RELEASE}.tgz
+ZEPPELIN_MIRROR_DOWNLOAD=http://www-eu.apache.org/dist/zeppelin/zeppelin-${ZEPPELIN_VERSION}/${ZEPPELIN_ARCHIVE}
+ZEPPELIN_RES_DIR=/vagrant/resources/zeppelin
+ZEPPELIN_TARGET=/home/vagrant
 
 # ssh
 SSH_RES_DIR=/vagrant/resources/ssh
